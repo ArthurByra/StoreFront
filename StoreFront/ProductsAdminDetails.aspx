@@ -76,7 +76,7 @@
             <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
         </asp:DetailsView>
         <asp:ValidationSummary runat="server" ForeColor="Red" Height="78px" Width="231px"></asp:ValidationSummary>
-        <asp:Button ID="BackButton" runat="server" Text="Back" OnClick="BackButton_Click" CssClass="Button" />
+        <asp:Button ID="BackButton" runat="server" Text="Back" OnClick="BackButton_Click" CssClass="Button" ValidationGroup="ValGroup1"/>
         </div>
     </div>
     </asp:Content>

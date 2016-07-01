@@ -4,7 +4,7 @@
 
 <html lang="en">
 <head runat="server">
-    <link href="Site.css" rel="stylesheet" type="text/css" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> - My ASP.NET Application</title>
@@ -62,10 +62,7 @@
                         </AnonymousTemplate>
                         <LoggedInTemplate>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
-                                <li>
-                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
-                                </li>
+                                <li><a runat="server" href="~/Home/UserProfile">Hello, <%: Context.User.Identity.GetUserName()  %>!</a></li>
                             </ul>
                         </LoggedInTemplate>
                     </asp:LoginView>
@@ -77,10 +74,11 @@
             </asp:ContentPlaceHolder>
         </div>
     </form>
-    <footer class="Footer">
-        <p></p>
-        <p>&copy; <%: DateTime.Now.Year %> - Arthur Byra</p>
-        <p>Computer Aid Inc.</p>
-    </footer>
+    <div class="row">
+                <footer class="footer">
+                    <p>&copy; - Arthur Byra</p>
+                    <p>Computer Aid, Inc.</p>
+                </footer>
+            </div>
 </body>
 </html>

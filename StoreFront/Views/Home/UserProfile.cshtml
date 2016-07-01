@@ -1,0 +1,53 @@
+﻿@model StoreFront.Models.ProfileViewModel
+
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="panel">
+    <div class="panel-body">
+        <div class="form-group">
+
+            @foreach (var item in Model.UserProfile)
+            {
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(modelItem => item.UserName):
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(modelItem => item.UserName)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(modelItem => item.EmailAddress):
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(modelItem => item.EmailAddress)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(modelItem => item.IsAdmin):
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(modelItem => item.IsAdmin)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(modelItem => item.DateCreated):
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(modelItem => item.DateCreated)
+                    </dd>
+
+                </dl>
+            }
+        </div>
+    </div>
+</div>

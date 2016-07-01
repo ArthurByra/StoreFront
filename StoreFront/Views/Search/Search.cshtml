@@ -1,0 +1,76 @@
+﻿@model StoreFront.ViewModels.SearchViewModel
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="navbar-nav navbar-right" id="divShoppingCart">
+
+</div>
+
+<div class="panel">
+    <div class="panel-body">
+        @using (Html.BeginForm("Search", "Search", FormMethod.Post))
+        {
+            <div class="form-group">
+                <label>Input product to search for: </label>
+                @Html.TextBoxFor(s => s.SearchText , new { @autofocus = "autofocus" })
+            </div>
+            <div class="form-group">
+                <input id="SearchButton" type="submit" class="btn btn-primary" value="Search Products" />
+            </div>
+        }
+
+        <table class="table" id="table">
+            <tr>
+                <th>
+                    Product Name   
+                </th>
+                <th>
+                    Price
+                </th>
+                <th>
+                    Image
+                </th>
+                <th>
+                    Add to Cart
+                </th>
+            </tr>
+
+            @if (Model.Results.Any())
+            {
+                foreach (var item in Model.Results)
+                {
+                    <tr>
+                        <td>
+                            @Html.Display(item.Name)
+                        </td>
+                        <td>
+                            @Html.Display(item.Price.ToString())
+                        </td>
+                        <td>
+                            <img src="@Url.Content(item.ImageFile)" />
+                        </td>
+                        <td>
+                            @Html.ActionLink("Add to Cart", "Add", "Search", new {id = item.ProductID })
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="4">No product found.</td>
+                </tr>
+            }
+
+        </table>
+
+        <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+        <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+    </div>
+</div>

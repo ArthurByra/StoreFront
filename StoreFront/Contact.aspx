@@ -5,14 +5,16 @@
     <link href="Site.css" rel="stylesheet" type="text/css" />
 
     <h2><%: Title %></h2>
-    <address>
-        16 StoreFront Way<br />
-        Woahthere, PA 12732-8326<br />
-        <abbr title="Phone">P:</abbr>
-        321.846.3926
-    </address>
+    <div class="contact">
+        <address>
+            16 StoreFront Way<br />
+            Woahthere, PA 12732-8326<br />
+            <abbr title="Phone">P:</abbr>
+            321.846.3926
+        </address>
 
-    <address>
-        <strong>Support:</strong>   <a href="mailto:Arthur_Byra@compaid.com">Arthur_Byra@compaid.com</a><br />
-    </address>
+        <address>
+            <strong>Support:</strong>   <a href="mailto:Arthur_Byra@compaid.com">Arthur_Byra@compaid.com</a><br />
+        </address>
+    </div>
 </asp:Content>

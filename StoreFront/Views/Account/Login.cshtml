@@ -1,0 +1,32 @@
+﻿@using StoreFront.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+<div class="panel">
+    <div class="panel-body">
+        <div class="form-group">
+            @using (Html.BeginForm())
+            {
+                <div class="alert alert-warning">
+                    @Html.ValidationSummary()
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    @Html.TextBoxFor(m => m.Email, new {  @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Login" class="btn btn-primary" />
+                </div>
+            }
+        </div>
+    </div>
+</div>

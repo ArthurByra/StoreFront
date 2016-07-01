@@ -1,0 +1,28 @@
+﻿@if (Session["IsAdmin"] != null)
+{
+    if (Convert.ToInt32(Session["IsAdmin"]) == 1)
+    {
+        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        <li>@Html.ActionLink("Search", "Index", "Search")</li>
+        <li>@Html.ActionLink("Profile", "UserProfile", "Home")</li>
+        <li><a href="~/Default.aspx">Admin</a></li>
+    }
+    else
+    {
+        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        <li>@Html.ActionLink("Search", "Index", "Search")</li>
+        if (Request.IsAuthenticated)
+        {
+            <li>@Html.ActionLink("Profile", "UserProfile", "Home")</li>
+        }
+    }
+}
+else
+{
+    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+    <li>@Html.ActionLink("Search", "Index", "Search")</li>
+    if (Request.IsAuthenticated)
+    {
+        <li>@Html.ActionLink("Profile", "UserProfile", "Home")</li>
+    }
+}

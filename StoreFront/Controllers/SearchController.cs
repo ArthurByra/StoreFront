@@ -1,32 +1,59 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using StoreFront.Models;
+using StoreFront.ViewModels;
 
 namespace StoreFront.Controllers
 {
     public class SearchController : Controller
     {
+        private StoreFrontContext db = new StoreFrontContext();
+
+        [Authorize]
         public ActionResult Index()
         {
-            //Will be a blank search page with a text box and a search button
-            return View();
+            var x = new SearchViewModel();
+            x.Name = HttpContext.User.Identity.Name;
+            return View(x);
         }
 
-        public ActionResult Search()
+        [Authorize]
+        [HttpPost]
+        public ActionResult Search(SearchViewModel model)
         {
-            //Happens when the user clicks the search button
-            //Takes a string parameter that will be used to search against the products in the database and display the results
-            //Needs a special message when a search returns no results
-            return View();
+            using (db)
+            {
+                var products = db.Products.Where(prdt => prdt.ProductName.Contains(model.SearchText) && prdt.IsPublished == true);
+                model.Results = products.Select(x => new SearchResultsViewModel { Name = x.ProductName, Price = x.Price ?? 999999, ImageFile = x.ImageFile, ProductID = x.ProductID}).ToList();
+            }
+
+            return View(model);
         }
 
-        public ActionResult AddToCart()
+        [HttpPost]
+        public ActionResult Add(ShoppingCartViewModel model, int ProdID) //fix
         {
-            //Happens when the user clicks the Add To Cart button on a product result line
-            //Will use AJAX to add the product to the customer's cart without refreshing the page
-            return View();
+            using (db)
+            {
+                var findProduct = db.Products.Where(p => p.ProductID == ProdID);
+                model.ShoppingCartItems = findProduct.Select(x => new ShoppingCartResults { Name = x.ProductName, Price = x.Price ?? 999999, ImageFile = x.ImageFile}).ToList();
+            }
+
+            return RedirectToAction("AddCartQuantity");
+        }
+
+        public PartialViewResult AddCartQuantity()
+        {
+            Session["CartCount"] = Convert.ToInt32(Session["CartCount"]) + 1;
+
+            return PartialView("_ShoppingCartPartial");
         }
     }
 }

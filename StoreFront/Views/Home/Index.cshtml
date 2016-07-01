@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+@if (Session["CartCount"] == null)
+{
+    Session["CartCount"] = 0;
+}
+
+@if (Request.IsAuthenticated)
+{
+    <h2>Welcome to StoreFront, @User.Identity.Name!</h2>
+}
+else
+{
+    <h2>Welcome to StoreFront!</h2>
+}
+
+<div class="panel">
+    <div class="panel-body">
+        <div class="form-group">
+            <p>Text here</p>
+        </div>
+    </div>
+</div>
