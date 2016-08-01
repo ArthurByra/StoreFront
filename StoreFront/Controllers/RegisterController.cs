@@ -33,7 +33,7 @@ namespace StoreFront.Controllers
                     }
                     else
                     {
-                        db.Users.Add(new StoreFront.Models.User { UserName = account.UserName, Password = account.Password, EmailAddress = account.EmailAddress, IsAdmin = false, DateCreated = DateTime.Now });
+                        db.Users.Add(new StoreFront.Models.User { UserName = account.UserName, Password = account.Password, EmailAddress = account.EmailAddress, IsAdmin = false, DateCreated = DateTime.Now , CreatedBy = account.UserName});
                         db.SaveChanges();
 
                         ModelState.Clear();

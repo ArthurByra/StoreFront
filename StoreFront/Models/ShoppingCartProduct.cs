@@ -18,7 +18,6 @@ namespace StoreFront.Models
         public Nullable<int> ShoppingCartID { get; set; }
         public Nullable<int> ProductID { get; set; }
         public Nullable<int> Quantity { get; set; }
-        public Nullable<decimal> Price { get; set; }
         public Nullable<System.DateTime> DateCreated { get; set; }
         public string CreatedBy { get; set; }
         public Nullable<System.DateTime> DateModified { get; set; }

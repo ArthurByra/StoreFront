@@ -7,19 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace StoreFront.Models
+namespace StoreFront.Data.Models
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class spGetShoppingCartItems_Result
+    public partial class ShoppingCartProduct
     {
         public int ShoppingCartProductID { get; set; }
-        public int ShoppingCartID { get; set; }
+        public Nullable<int> ShoppingCartID { get; set; }
         public Nullable<int> ProductID { get; set; }
         public Nullable<int> Quantity { get; set; }
         public Nullable<System.DateTime> DateCreated { get; set; }
         public string CreatedBy { get; set; }
         public Nullable<System.DateTime> DateModified { get; set; }
         public string ModifiedBy { get; set; }
+    
+        public virtual Product Product { get; set; }
+        public virtual ShoppingCart ShoppingCart { get; set; }
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Profile;
 using System.Web.Security;
 
 namespace StoreFront.Controllers
@@ -34,13 +35,14 @@ namespace StoreFront.Controllers
                     {
                         FormsAuthentication.SetAuthCookie(usr.UserName, false);
 
-                        userLogin.UserName = HttpContext.User.Identity.Name;
-                        Session["UserID"] = userLogin.UserID;
-                        Session["CartCount"] = 0;
-
                         if (usr.IsAdmin == true)
                         {
-                            Session["IsAdmin"] = 1;
+                            Session["isAdmin"] = 1;
+
+                            //dynamic profile = ProfileBase.Create(Membership.GetUser().UserName);
+                            //string isAdmin = profile.isAdmin;
+                            //profile.isAdmin = "1";
+                            //profile.Save();
                         }
 
                         return RedirectToAction("Index", "Home");
@@ -51,7 +53,8 @@ namespace StoreFront.Controllers
                     }
                 }
             }
-                return View();
+
+            return View();
         }
     }
 }

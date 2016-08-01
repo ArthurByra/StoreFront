@@ -11,12 +11,13 @@ namespace StoreFront.Models
 {
     using System;
     
-    public partial class spGetShoppingCartItems_Result
+    public partial class spGetShoppingCartList_Result
     {
         public int ShoppingCartProductID { get; set; }
-        public int ShoppingCartID { get; set; }
+        public Nullable<int> ShoppingCartID { get; set; }
         public Nullable<int> ProductID { get; set; }
         public Nullable<int> Quantity { get; set; }
+        public Nullable<decimal> Price { get; set; }
         public Nullable<System.DateTime> DateCreated { get; set; }
         public string CreatedBy { get; set; }
         public Nullable<System.DateTime> DateModified { get; set; }

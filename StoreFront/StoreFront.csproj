@@ -243,6 +243,8 @@
     <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Images\meathook.png" />
+    <Content Include="Images\pencil.png" />
     <Content Include="ProductsAdmin.aspx" />
     <Content Include="ProductsAdminDetails.aspx" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
@@ -294,7 +296,9 @@
       <LastGenOutput>StoreFrontModel.cs</LastGenOutput>
     </Content>
     <Content Include="ViewSwitcher.ascx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Bundle.config" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
@@ -324,19 +328,8 @@
     <Content Include="Models\StoreFrontModel.edmx.diagram">
       <DependentUpon>StoreFrontModel.edmx</DependentUpon>
     </Content>
-    <Content Include="Views\Shared\_ShoppingCartPartial.cshtml" />
     <Content Include="Views\Shared\_NavPartial.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />
-    <Content Include="Views\pizza\Create.cshtml" />
-    <Content Include="Views\pizza\Delete.cshtml" />
-    <Content Include="Views\pizza\Details.cshtml" />
-    <Content Include="Views\pizza\Edit.cshtml" />
-    <Content Include="Views\pizza\Index.cshtml" />
-    <Content Include="Views\APPLES\Create.cshtml" />
-    <Content Include="Views\APPLES\Delete.cshtml" />
-    <Content Include="Views\APPLES\Details.cshtml" />
-    <Content Include="Views\APPLES\Edit.cshtml" />
-    <Content Include="Views\APPLES\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -345,12 +338,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\APPLESController.cs" />
-    <Compile Include="Controllers\pizzaController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
-    <Compile Include="Models\Address.cs">
-      <DependentUpon>StoreFrontModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -390,6 +378,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Address.cs">
+      <DependentUpon>StoreFrontModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\CustomerBaseViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -403,40 +394,11 @@
       <DependentUpon>StoreFrontModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ProfileViewModel.cs" />
-    <Compile Include="ProductsAdmin.aspx.cs">
-      <DependentUpon>ProductsAdmin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ProductsAdmin.aspx.designer.cs">
-      <DependentUpon>ProductsAdmin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ProductsAdminDetails.aspx.cs">
-      <DependentUpon>ProductsAdminDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ProductsAdminDetails.aspx.designer.cs">
-      <DependentUpon>ProductsAdminDetails.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\ShoppingCart.cs">
       <DependentUpon>StoreFrontModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ShoppingCartProduct.cs">
       <DependentUpon>StoreFrontModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Site.Master.cs">
-      <DependentUpon>Site.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Site.Master.designer.cs">
-      <DependentUpon>Site.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Site.Mobile.Master.cs">
-      <DependentUpon>Site.Mobile.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Site.Mobile.Master.designer.cs">
-      <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Models\spGetOrderProducts_Result.cs">
       <DependentUpon>StoreFrontModel.tt</DependentUpon>
@@ -451,6 +413,9 @@
       <DependentUpon>StoreFrontModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\spGetShoppingCartItems_Result.cs">
+      <DependentUpon>StoreFrontModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spGetShoppingCartList_Result.cs">
       <DependentUpon>StoreFrontModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\spGetShoppingCart_Result.cs">
@@ -477,13 +442,48 @@
     <Compile Include="Models\sp_helpdiagrams_Result.cs">
       <DependentUpon>StoreFrontModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Startup.cs" />
     <Compile Include="Models\State.cs">
       <DependentUpon>StoreFrontModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Status.cs">
       <DependentUpon>StoreFrontModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>StoreFrontModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>StoreFrontModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsAdmin.aspx.cs">
+      <DependentUpon>ProductsAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductsAdmin.aspx.designer.cs">
+      <DependentUpon>ProductsAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsAdminDetails.aspx.cs">
+      <DependentUpon>ProductsAdminDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductsAdminDetails.aspx.designer.cs">
+      <DependentUpon>ProductsAdminDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.designer.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Startup.cs" />
     <Compile Include="Models\StoreFrontModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -499,12 +499,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>StoreFrontModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>StoreFrontModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\User.cs">
-      <DependentUpon>StoreFrontModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="ViewModels\SearchViewModel.cs" />
     <Compile Include="ViewModels\ShoppingCartViewModel.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
@@ -524,7 +519,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

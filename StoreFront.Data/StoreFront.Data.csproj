@@ -51,118 +51,84 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ProductDal.cs" />
-    <Compile Include="Entity\Address.cs">
-      <DependentUpon>StoreFront.tt</DependentUpon>
+    <Compile Include="Models\Address.cs">
+      <DependentUpon>StoreFrontEntityFramework.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\Order.cs">
-      <DependentUpon>StoreFront.tt</DependentUpon>
+    <Compile Include="Models\Order.cs">
+      <DependentUpon>StoreFrontEntityFramework.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\OrderProduct.cs">
-      <DependentUpon>StoreFront.tt</DependentUpon>
+    <Compile Include="Models\OrderProduct.cs">
+      <DependentUpon>StoreFrontEntityFramework.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\Product.cs">
-      <DependentUpon>StoreFront.tt</DependentUpon>
+    <Compile Include="Models\Product.cs">
+      <DependentUpon>StoreFrontEntityFramework.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\ShoppingCart.cs">
-      <DependentUpon>StoreFront.tt</DependentUpon>
+    <Compile Include="Models\ShoppingCart.cs">
+      <DependentUpon>StoreFrontEntityFramework.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\ShoppingCartProduct.cs">
-      <DependentUpon>StoreFront.tt</DependentUpon>
+    <Compile Include="Models\ShoppingCartProduct.cs">
+      <DependentUpon>StoreFrontEntityFramework.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\spGetOrderProducts_Result.cs">
-      <DependentUpon>StoreFront.tt</DependentUpon>
+    <Compile Include="Models\State.cs">
+      <DependentUpon>StoreFrontEntityFramework.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\spGetOrders_Result.cs">
-      <DependentUpon>StoreFront.tt</DependentUpon>
+    <Compile Include="Models\Status.cs">
+      <DependentUpon>StoreFrontEntityFramework.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\spGetProducts_Result.cs">
-      <DependentUpon>StoreFront.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\spGetProduct_Result.cs">
-      <DependentUpon>StoreFront.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\spGetShoppingCartItems_Result.cs">
-      <DependentUpon>StoreFront.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\spGetShoppingCart_Result.cs">
-      <DependentUpon>StoreFront.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\spGetUserAddresses_Result.cs">
-      <DependentUpon>StoreFront.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\spGetUsers_Result.cs">
-      <DependentUpon>StoreFront.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\spGetUser_Result.cs">
-      <DependentUpon>StoreFront.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\spSearchProducts_Result.cs">
-      <DependentUpon>StoreFront.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\spUpdateUser_Result.cs">
-      <DependentUpon>StoreFront.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>StoreFront.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\sp_helpdiagrams_Result.cs">
-      <DependentUpon>StoreFront.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\State.cs">
-      <DependentUpon>StoreFront.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\Status.cs">
-      <DependentUpon>StoreFront.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\StoreFront.Context.cs">
+    <Compile Include="Models\StoreFrontEntityFramework.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>StoreFront.Context.tt</DependentUpon>
+      <DependentUpon>StoreFrontEntityFramework.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\StoreFront.cs">
+    <Compile Include="Models\StoreFrontEntityFramework.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>StoreFront.tt</DependentUpon>
+      <DependentUpon>StoreFrontEntityFramework.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\StoreFront.Designer.cs">
+    <Compile Include="Models\StoreFrontEntityFramework.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>StoreFront.edmx</DependentUpon>
+      <DependentUpon>StoreFrontEntityFramework.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Entity\User.cs">
-      <DependentUpon>StoreFront.tt</DependentUpon>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>StoreFrontEntityFramework.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>StoreFrontEntityFramework.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\ProductViewModel.cs" />
+    <Compile Include="Repository\InventoryRepository.cs" />
+    <Compile Include="Repository\OrderRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="Entity\StoreFront.edmx">
+    <EntityDeploy Include="Models\StoreFrontEntityFramework.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>StoreFront.Designer.cs</LastGenOutput>
+      <LastGenOutput>StoreFrontEntityFramework.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Entity\StoreFront.edmx.diagram">
-      <DependentUpon>StoreFront.edmx</DependentUpon>
+    <None Include="Models\StoreFrontEntityFramework.edmx.diagram">
+      <DependentUpon>StoreFrontEntityFramework.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Entity\StoreFront.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>StoreFront.edmx</DependentUpon>
-      <LastGenOutput>StoreFront.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Entity\StoreFront.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>StoreFront.edmx</DependentUpon>
-      <LastGenOutput>StoreFront.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ViewModels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\StoreFrontEntityFramework.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>StoreFrontEntityFramework.edmx</DependentUpon>
+      <LastGenOutput>StoreFrontEntityFramework.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\StoreFrontEntityFramework.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>StoreFrontEntityFramework.edmx</DependentUpon>
+      <LastGenOutput>StoreFrontEntityFramework.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -4,11 +4,6 @@
     Layout = "~/Views/Shared/_CustomerLayout.cshtml";
 }
 
-@if (Session["CartCount"] == null)
-{
-    Session["CartCount"] = 0;
-}
-
 @if (Request.IsAuthenticated)
 {
     <h2>Welcome to StoreFront, @User.Identity.Name!</h2>
@@ -21,7 +16,9 @@ else
 <div class="panel">
     <div class="panel-body">
         <div class="form-group">
-            <p>Text here</p>
+            <p>This is text.
+            </p>
+            <p>This is more text.</p>
         </div>
     </div>
 </div>

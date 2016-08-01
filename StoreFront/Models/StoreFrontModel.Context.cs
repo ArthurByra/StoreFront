@@ -256,13 +256,13 @@ namespace StoreFront.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGetShoppingCart_Result>("spGetShoppingCart", userIDParameter);
         }
     
-        public virtual ObjectResult<spGetShoppingCartItems_Result> spGetShoppingCartItems(Nullable<int> shoppingCartID)
+        public virtual ObjectResult<spGetShoppingCartList_Result> spGetShoppingCartList(Nullable<int> shoppingCartID)
         {
             var shoppingCartIDParameter = shoppingCartID.HasValue ?
                 new ObjectParameter("ShoppingCartID", shoppingCartID) :
                 new ObjectParameter("ShoppingCartID", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGetShoppingCartItems_Result>("spGetShoppingCartItems", shoppingCartIDParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGetShoppingCartList_Result>("spGetShoppingCartList", shoppingCartIDParameter);
         }
     
         public virtual ObjectResult<spGetUser_Result> spGetUser(Nullable<int> userID)
@@ -371,6 +371,15 @@ namespace StoreFront.Models
                 new ObjectParameter("IsAdmin", typeof(bool));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spUpdateUser_Result>("spUpdateUser", userIDParameter, userNameParameter, emailAddressParameter, isAdminParameter);
+        }
+    
+        public virtual ObjectResult<spGetShoppingCartItems_Result> spGetShoppingCartItems(Nullable<int> shoppingCartID)
+        {
+            var shoppingCartIDParameter = shoppingCartID.HasValue ?
+                new ObjectParameter("ShoppingCartID", shoppingCartID) :
+                new ObjectParameter("ShoppingCartID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGetShoppingCartItems_Result>("spGetShoppingCartItems", shoppingCartIDParameter);
         }
     }
 }

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Address">
           <Key>
             <PropertyRef Name="AddressID" />
@@ -254,107 +254,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
-        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="version" Type="int" Mode="In" />
-          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-        </Function>
-        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="version" Type="int" Mode="In" />
-          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-        </Function>
-        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
-        </Function>
-        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="spAddProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="ProductName" Type="varchar" Mode="In" />
-          <Parameter Name="Description" Type="varchar" Mode="In" />
-          <Parameter Name="IsPublished" Type="bit" Mode="In" />
-          <Parameter Name="Price" Type="money" Mode="In" />
-        </Function>
-        <Function Name="spAddShoppingCartItem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="ProductID" Type="int" Mode="In" />
-          <Parameter Name="UserID" Type="int" Mode="In" />
-        </Function>
-        <Function Name="spAddUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="Username" Type="varchar" Mode="In" />
-          <Parameter Name="EmailAddress" Type="varchar" Mode="In" />
-          <Parameter Name="IsAdmin" Type="bit" Mode="In" />
-        </Function>
-        <Function Name="spDeleteOrder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="OrderID" Type="int" Mode="In" />
-        </Function>
-        <Function Name="spDeleteProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="ProductID" Type="int" Mode="In" />
-        </Function>
-        <Function Name="spDeleteUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="UserID" Type="int" Mode="In" />
-        </Function>
-        <Function Name="spGetOrderProducts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="OrderID" Type="int" Mode="In" />
-        </Function>
-        <Function Name="spGetOrders" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="spGetProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="ProductID" Type="int" Mode="In" />
-        </Function>
-        <Function Name="spGetProducts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="spGetShoppingCart" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="UserID" Type="int" Mode="In" />
-        </Function>
-        <Function Name="spGetShoppingCartItems" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="ShoppingCartID" Type="int" Mode="In" />
-        </Function>
-        <Function Name="spGetUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="UserID" Type="int" Mode="In" />
-        </Function>
-        <Function Name="spGetUserAddresses" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="UserID" Type="int" Mode="In" />
-        </Function>
-        <Function Name="spGetUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="spLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="UserName" Type="varchar" Mode="In" />
-          <Parameter Name="Password" Type="varbinary" Mode="In" />
-        </Function>
-        <Function Name="spRegister" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="UserName" Type="varchar" Mode="In" />
-          <Parameter Name="Password" Type="varbinary" Mode="In" />
-          <Parameter Name="EmailAddress" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="spSearchProducts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="SearchText" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="spUpdateProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="ProductID" Type="int" Mode="In" />
-          <Parameter Name="ProductName" Type="varchar" Mode="In" />
-          <Parameter Name="Description" Type="varchar" Mode="In" />
-          <Parameter Name="IsPublished" Type="bit" Mode="In" />
-          <Parameter Name="Price" Type="money" Mode="In" />
-        </Function>
-        <Function Name="spUpdateUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="UserID" Type="int" Mode="In" />
-          <Parameter Name="UserName" Type="varchar" Mode="In" />
-          <Parameter Name="EmailAddress" Type="varchar" Mode="In" />
-          <Parameter Name="IsAdmin" Type="bit" Mode="In" />
-        </Function>
         <EntityContainer Name="ModelsStoreContainer">
           <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
@@ -407,7 +306,8 @@
             <End Role="ShoppingCartProduct" EntitySet="ShoppingCartProduct" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Models" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -490,7 +390,7 @@
           <Key>
             <PropertyRef Name="ShoppingCartID" />
           </Key>
-          <Property Name="ShoppingCartID" Type="Int32" Nullable="false" />
+          <Property Name="ShoppingCartID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserID" Type="Int32" />
           <Property Name="DateCreated" Type="DateTime" Precision="3" />
           <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -503,7 +403,7 @@
           <Key>
             <PropertyRef Name="ShoppingCartProductID" />
           </Key>
-          <Property Name="ShoppingCartProductID" Type="Int32" Nullable="false" />
+          <Property Name="ShoppingCartProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ShoppingCartID" Type="Int32" />
           <Property Name="ProductID" Type="Int32" />
           <Property Name="Quantity" Type="Int32" />
@@ -680,7 +580,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="StoreFrontContext" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="StoreFrontEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Addresses" EntityType="Self.Address" />
           <EntitySet Name="Orders" EntityType="Self.Order" />
           <EntitySet Name="OrderProducts" EntityType="Self.OrderProduct" />
@@ -731,247 +631,13 @@
             <End Role="ShoppingCart" EntitySet="ShoppingCarts" />
             <End Role="ShoppingCartProduct" EntitySet="ShoppingCartProducts" />
           </AssociationSet>
-          <FunctionImport Name="sp_alterdiagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="version" Mode="In" Type="Int32" />
-            <Parameter Name="definition" Mode="In" Type="Binary" />
-          </FunctionImport>
-          <FunctionImport Name="sp_creatediagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="version" Mode="In" Type="Int32" />
-            <Parameter Name="definition" Mode="In" Type="Binary" />
-          </FunctionImport>
-          <FunctionImport Name="sp_dropdiagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(Models.sp_helpdiagramdefinition_Result)">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(Models.sp_helpdiagrams_Result)">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_renamediagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="new_diagramname" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="sp_upgraddiagrams" />
-          <FunctionImport Name="spAddProduct">
-            <Parameter Name="ProductName" Mode="In" Type="String" />
-            <Parameter Name="Description" Mode="In" Type="String" />
-            <Parameter Name="IsPublished" Mode="In" Type="Boolean" />
-            <Parameter Name="Price" Mode="In" Type="Decimal" />
-          </FunctionImport>
-          <FunctionImport Name="spAddShoppingCartItem">
-            <Parameter Name="ProductID" Mode="In" Type="Int32" />
-            <Parameter Name="UserID" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="spAddUser">
-            <Parameter Name="Username" Mode="In" Type="String" />
-            <Parameter Name="EmailAddress" Mode="In" Type="String" />
-            <Parameter Name="IsAdmin" Mode="In" Type="Boolean" />
-          </FunctionImport>
-          <FunctionImport Name="spDeleteOrder">
-          <Parameter Name="OrderID" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="spDeleteProduct">
-          <Parameter Name="ProductID" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="spDeleteUser">
-          <Parameter Name="UserID" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="spGetOrderProducts" ReturnType="Collection(Models.spGetOrderProducts_Result)">
-          <Parameter Name="OrderID" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="spGetOrders" ReturnType="Collection(Models.spGetOrders_Result)" />
-          <FunctionImport Name="spGetProduct" ReturnType="Collection(Models.spGetProduct_Result)">
-          <Parameter Name="ProductID" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="spGetProducts" ReturnType="Collection(Models.spGetProducts_Result)" />
-          <FunctionImport Name="spGetShoppingCart" ReturnType="Collection(Models.spGetShoppingCart_Result)">
-          <Parameter Name="UserID" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="spGetShoppingCartList" ReturnType="Collection(Models.spGetShoppingCartList_Result)">
-          <Parameter Name="ShoppingCartID" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="spGetUser" ReturnType="Collection(Models.spGetUser_Result)">
-          <Parameter Name="UserID" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="spGetUserAddresses" ReturnType="Collection(Models.spGetUserAddresses_Result)">
-          <Parameter Name="UserID" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="spGetUsers" ReturnType="Collection(Models.spGetUsers_Result)" />
-          <FunctionImport Name="spLogin" ReturnType="Collection(Int32)">
-            <Parameter Name="UserName" Mode="In" Type="String" />
-            <Parameter Name="Password" Mode="In" Type="Binary" />
-          </FunctionImport>
-          <FunctionImport Name="spRegister" ReturnType="Collection(Int32)">
-            <Parameter Name="UserName" Mode="In" Type="String" />
-            <Parameter Name="Password" Mode="In" Type="Binary" />
-            <Parameter Name="EmailAddress" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="spSearchProducts" ReturnType="Collection(Models.spSearchProducts_Result)">
-          <Parameter Name="SearchText" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="spUpdateProduct">
-            <Parameter Name="ProductID" Mode="In" Type="Int32" />
-            <Parameter Name="ProductName" Mode="In" Type="String" />
-            <Parameter Name="Description" Mode="In" Type="String" />
-            <Parameter Name="IsPublished" Mode="In" Type="Boolean" />
-            <Parameter Name="Price" Mode="In" Type="Decimal" />
-          </FunctionImport>
-          <FunctionImport Name="spUpdateUser" ReturnType="Collection(Models.spUpdateUser_Result)">
-            <Parameter Name="UserID" Mode="In" Type="Int32" />
-            <Parameter Name="UserName" Mode="In" Type="String" />
-            <Parameter Name="EmailAddress" Mode="In" Type="String" />
-            <Parameter Name="IsAdmin" Mode="In" Type="Boolean" />
-          </FunctionImport>
-          <FunctionImport Name="spGetShoppingCartItems" ReturnType="Collection(Models.spGetShoppingCartItems_Result)">
-          <Parameter Name="ShoppingCartID" Mode="In" Type="Int32" />
-          </FunctionImport>
         </EntityContainer>
-        <ComplexType Name="sp_helpdiagramdefinition_Result">
-          <Property Type="Int32" Name="version" Nullable="true" />
-          <Property Type="Binary" Name="definition" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="sp_helpdiagrams_Result">
-          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
-          <Property Type="Int32" Name="ID" Nullable="false" />
-          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
-          <Property Type="Int32" Name="OwnerID" Nullable="false" />
-        </ComplexType>
-        <ComplexType Name="spGetOrderProducts_Result">
-          <Property Type="Int32" Name="OrderProductID" Nullable="false" />
-          <Property Type="Int32" Name="OrderID" Nullable="true" />
-          <Property Type="Int32" Name="ProductID" Nullable="true" />
-          <Property Type="Int32" Name="Quantity" Nullable="true" />
-          <Property Type="Decimal" Name="Price" Nullable="true" Precision="19" />
-          <Property Type="DateTime" Name="DateCreated" Nullable="true" Precision="23" />
-          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
-          <Property Type="DateTime" Name="DateModified" Nullable="true" Precision="23" />
-          <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
-        </ComplexType>
-        <ComplexType Name="spGetOrders_Result">
-          <Property Type="Int32" Name="OrderID" Nullable="false" />
-          <Property Type="Int32" Name="UserID" Nullable="true" />
-          <Property Type="Int32" Name="AddressID" Nullable="true" />
-          <Property Type="DateTime" Name="OrderDate" Nullable="true" Precision="23" />
-          <Property Type="Decimal" Name="Total" Nullable="true" Precision="19" />
-          <Property Type="Int32" Name="StatusID" Nullable="true" />
-          <Property Type="DateTime" Name="DateCreated" Nullable="true" Precision="23" />
-          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
-          <Property Type="DateTime" Name="DateModifed" Nullable="true" Precision="23" />
-          <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
-        </ComplexType>
-        <ComplexType Name="spGetProduct_Result">
-          <Property Type="Int32" Name="ProductID" Nullable="false" />
-          <Property Type="String" Name="ProductName" Nullable="true" MaxLength="500" />
-          <Property Type="String" Name="Description" Nullable="true" MaxLength="1000" />
-          <Property Type="Boolean" Name="IsPublished" Nullable="true" />
-          <Property Type="Int32" Name="Quantity" Nullable="true" />
-          <Property Type="Decimal" Name="Price" Nullable="true" Precision="19" />
-          <Property Type="String" Name="ImageFile" Nullable="true" MaxLength="500" />
-          <Property Type="DateTime" Name="DateCreated" Nullable="true" Precision="23" />
-          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
-          <Property Type="DateTime" Name="DateModified" Nullable="true" Precision="23" />
-          <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
-        </ComplexType>
-        <ComplexType Name="spGetProducts_Result">
-          <Property Type="Int32" Name="ProductID" Nullable="false" />
-          <Property Type="String" Name="ProductName" Nullable="true" MaxLength="500" />
-          <Property Type="String" Name="Description" Nullable="true" MaxLength="1000" />
-          <Property Type="Boolean" Name="IsPublished" Nullable="true" />
-          <Property Type="Int32" Name="Quantity" Nullable="true" />
-          <Property Type="Decimal" Name="Price" Nullable="true" Precision="19" />
-          <Property Type="String" Name="ImageFile" Nullable="true" MaxLength="500" />
-          <Property Type="DateTime" Name="DateCreated" Nullable="true" Precision="23" />
-          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
-          <Property Type="DateTime" Name="DateModified" Nullable="true" Precision="23" />
-          <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
-        </ComplexType>
-        <ComplexType Name="spGetShoppingCart_Result">
-          <Property Type="Int32" Name="ShoppingCartID" Nullable="false" />
-          <Property Type="Int32" Name="UserID" Nullable="true" />
-          <Property Type="DateTime" Name="DateCreated" Nullable="true" Precision="23" />
-          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
-          <Property Type="DateTime" Name="DateModified" Nullable="true" Precision="23" />
-          <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
-        </ComplexType>
-        <ComplexType Name="spGetShoppingCartList_Result">
-          <Property Type="Int32" Name="ShoppingCartProductID" Nullable="false" />
-          <Property Type="Int32" Name="ShoppingCartID" Nullable="true" />
-          <Property Type="Int32" Name="ProductID" Nullable="true" />
-          <Property Type="Int32" Name="Quantity" Nullable="true" />
-          <Property Type="Decimal" Name="Price" Nullable="true" Precision="19" />
-          <Property Type="DateTime" Name="DateCreated" Nullable="true" Precision="23" />
-          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
-          <Property Type="DateTime" Name="DateModified" Nullable="true" Precision="23" />
-          <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
-        </ComplexType>
-        <ComplexType Name="spGetUser_Result">
-          <Property Type="Int32" Name="UserID" Nullable="false" />
-          <Property Type="String" Name="UserName" Nullable="true" MaxLength="200" />
-          <Property Type="String" Name="Password" Nullable="true" MaxLength="200" />
-          <Property Type="String" Name="EmailAddress" Nullable="true" MaxLength="400" />
-          <Property Type="Boolean" Name="IsAdmin" Nullable="true" />
-          <Property Type="DateTime" Name="DateCreated" Nullable="true" Precision="23" />
-          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
-          <Property Type="DateTime" Name="DateModified" Nullable="true" Precision="23" />
-          <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
-        </ComplexType>
-        <ComplexType Name="spGetUserAddresses_Result">
-          <Property Type="Int32" Name="AddressID" Nullable="false" />
-          <Property Type="String" Name="Address1" Nullable="true" MaxLength="200" />
-          <Property Type="String" Name="Address2" Nullable="true" MaxLength="200" />
-          <Property Type="String" Name="Address3" Nullable="true" MaxLength="200" />
-          <Property Type="String" Name="City" Nullable="true" MaxLength="200" />
-          <Property Type="String" Name="StateName" Nullable="true" MaxLength="200" />
-          <Property Type="String" Name="ZipCode" Nullable="true" MaxLength="20" />
-          <Property Type="Boolean" Name="IsBilling" Nullable="true" />
-          <Property Type="Boolean" Name="IsShipping" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="spGetUsers_Result">
-          <Property Type="Int32" Name="UserID" Nullable="false" />
-          <Property Type="String" Name="UserName" Nullable="true" MaxLength="200" />
-          <Property Type="String" Name="Password" Nullable="true" MaxLength="200" />
-          <Property Type="String" Name="EmailAddress" Nullable="true" MaxLength="400" />
-          <Property Type="Boolean" Name="IsAdmin" Nullable="true" />
-          <Property Type="DateTime" Name="DateCreated" Nullable="true" Precision="23" />
-          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
-          <Property Type="DateTime" Name="DateModified" Nullable="true" Precision="23" />
-          <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
-        </ComplexType>
-        <ComplexType Name="spSearchProducts_Result">
-          <Property Type="String" Name="ProductName" Nullable="true" MaxLength="500" />
-          <Property Type="Decimal" Name="Price" Nullable="true" Precision="19" />
-          <Property Type="String" Name="ImageFile" Nullable="true" MaxLength="500" />
-        </ComplexType>
-        <ComplexType Name="spUpdateUser_Result">
-          <Property Type="Int32" Name="Column1" Nullable="true" />
-          <Property Type="String" Name="Column2" Nullable="true" MaxLength="200" />
-        </ComplexType>
-        <ComplexType Name="spGetShoppingCartItems_Result">
-          <Property Type="Int32" Name="ShoppingCartProductID" Nullable="false" />
-          <Property Type="Int32" Name="ShoppingCartID" Nullable="false" />
-          <Property Type="Int32" Name="ProductID" Nullable="true" />
-          <Property Type="Int32" Name="Quantity" Nullable="true" />
-          <Property Type="DateTime" Name="DateCreated" Nullable="true" Precision="23" />
-          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
-          <Property Type="DateTime" Name="DateModified" Nullable="true" Precision="23" />
-          <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
-        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ModelsStoreContainer" CdmEntityContainer="StoreFrontContext">
+        <EntityContainerMapping StorageEntityContainer="ModelsStoreContainer" CdmEntityContainer="StoreFrontEntities1">
           <EntitySetMapping Name="Addresses">
             <EntityTypeMapping TypeName="Models.Address">
               <MappingFragment StoreEntitySet="Address">
@@ -1109,192 +775,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Models.Store.sp_alterdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Models.Store.sp_creatediagram" />
-          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Models.Store.sp_dropdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Models.Store.sp_helpdiagramdefinition">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Models.sp_helpdiagramdefinition_Result">
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Models.Store.sp_helpdiagrams">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Models.sp_helpdiagrams_Result">
-                <ScalarProperty Name="Database" ColumnName="Database" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Owner" ColumnName="Owner" />
-                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Models.Store.sp_renamediagram" />
-          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Models.Store.sp_upgraddiagrams" />
-          <FunctionImportMapping FunctionImportName="spAddProduct" FunctionName="Models.Store.spAddProduct" />
-          <FunctionImportMapping FunctionImportName="spAddShoppingCartItem" FunctionName="Models.Store.spAddShoppingCartItem" />
-          <FunctionImportMapping FunctionImportName="spAddUser" FunctionName="Models.Store.spAddUser" />
-          <FunctionImportMapping FunctionImportName="spDeleteOrder" FunctionName="Models.Store.spDeleteOrder" />
-          <FunctionImportMapping FunctionImportName="spDeleteProduct" FunctionName="Models.Store.spDeleteProduct" />
-          <FunctionImportMapping FunctionImportName="spDeleteUser" FunctionName="Models.Store.spDeleteUser" />
-          <FunctionImportMapping FunctionImportName="spGetOrderProducts" FunctionName="Models.Store.spGetOrderProducts">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Models.spGetOrderProducts_Result">
-                <ScalarProperty Name="OrderProductID" ColumnName="OrderProductID" />
-                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
-                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="spGetOrders" FunctionName="Models.Store.spGetOrders">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Models.spGetOrders_Result">
-                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="AddressID" ColumnName="AddressID" />
-                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
-                <ScalarProperty Name="Total" ColumnName="Total" />
-                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="DateModifed" ColumnName="DateModifed" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="spGetProduct" FunctionName="Models.Store.spGetProduct">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Models.spGetProduct_Result">
-                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="IsPublished" ColumnName="IsPublished" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="ImageFile" ColumnName="ImageFile" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="spGetProducts" FunctionName="Models.Store.spGetProducts">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Models.spGetProducts_Result">
-                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="IsPublished" ColumnName="IsPublished" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="ImageFile" ColumnName="ImageFile" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="spGetShoppingCart" FunctionName="Models.Store.spGetShoppingCart">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Models.spGetShoppingCart_Result">
-                <ScalarProperty Name="ShoppingCartID" ColumnName="ShoppingCartID" />
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="spGetUser" FunctionName="Models.Store.spGetUser">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Models.spGetUser_Result">
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
-                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="spGetUserAddresses" FunctionName="Models.Store.spGetUserAddresses">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Models.spGetUserAddresses_Result">
-                <ScalarProperty Name="AddressID" ColumnName="AddressID" />
-                <ScalarProperty Name="Address1" ColumnName="Address1" />
-                <ScalarProperty Name="Address2" ColumnName="Address2" />
-                <ScalarProperty Name="Address3" ColumnName="Address3" />
-                <ScalarProperty Name="City" ColumnName="City" />
-                <ScalarProperty Name="StateName" ColumnName="StateName" />
-                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
-                <ScalarProperty Name="IsBilling" ColumnName="IsBilling" />
-                <ScalarProperty Name="IsShipping" ColumnName="IsShipping" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="spGetUsers" FunctionName="Models.Store.spGetUsers">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Models.spGetUsers_Result">
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
-                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="spLogin" FunctionName="Models.Store.spLogin" />
-          <FunctionImportMapping FunctionImportName="spRegister" FunctionName="Models.Store.spRegister" />
-          <FunctionImportMapping FunctionImportName="spSearchProducts" FunctionName="Models.Store.spSearchProducts">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Models.spSearchProducts_Result">
-                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="ImageFile" ColumnName="ImageFile" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="spUpdateProduct" FunctionName="Models.Store.spUpdateProduct" />
-          <FunctionImportMapping FunctionImportName="spUpdateUser" FunctionName="Models.Store.spUpdateUser">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Models.spUpdateUser_Result">
-                <ScalarProperty Name="Column1" ColumnName="Column1" />
-                <ScalarProperty Name="Column2" ColumnName="Column2" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="spGetShoppingCartItems" FunctionName="Models.Store.spGetShoppingCartItems">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Models.spGetShoppingCartItems_Result">
-                <ScalarProperty Name="ShoppingCartProductID" ColumnName="ShoppingCartProductID" />
-                <ScalarProperty Name="ShoppingCartID" ColumnName="ShoppingCartID" />
-                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

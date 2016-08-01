@@ -148,3 +148,16 @@
 {
     font-size:22px;
 }
+
+#fakeLink
+{
+    border: 0px;
+    margin-left: 19px;
+    background-color: transparent;
+    color: cornflowerblue;
+}
+
+#Inserted
+{
+    margin-left:10px;
+}

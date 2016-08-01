@@ -1,28 +1,18 @@
-﻿@if (Session["IsAdmin"] != null)
+﻿<li>@Html.ActionLink("Home", "Index", "Home")</li>
+<li>@Html.ActionLink("Search", "Index", "Search")</li>
+
+@if (Request.IsAuthenticated)
 {
-    if (Convert.ToInt32(Session["IsAdmin"]) == 1)
+    <li>@Html.ActionLink("Profile", "UserProfile", "Home")</li>
+
+    @*if (HttpContext.Current.Profile.GetPropertyValue("isAdmin") != null && (int)HttpContext.Current.Profile.GetPropertyValue("isAdmin") == 1)
     {
-        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-        <li>@Html.ActionLink("Search", "Index", "Search")</li>
-        <li>@Html.ActionLink("Profile", "UserProfile", "Home")</li>
+        <li><a href="~/Default.aspx">Admin</a></li>
+    }*@
+
+    if (Session["isAdmin"] != null && (int)Session["isAdmin"] == 1)
+    {
         <li><a href="~/Default.aspx">Admin</a></li>
     }
-    else
-    {
-        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-        <li>@Html.ActionLink("Search", "Index", "Search")</li>
-        if (Request.IsAuthenticated)
-        {
-            <li>@Html.ActionLink("Profile", "UserProfile", "Home")</li>
-        }
-    }
-}
-else
-{
-    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-    <li>@Html.ActionLink("Search", "Index", "Search")</li>
-    if (Request.IsAuthenticated)
-    {
-        <li>@Html.ActionLink("Profile", "UserProfile", "Home")</li>
-    }
+
 }

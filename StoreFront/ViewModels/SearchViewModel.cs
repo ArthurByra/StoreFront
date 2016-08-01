@@ -11,19 +11,11 @@ namespace StoreFront.ViewModels
     {
         public string SearchText { get; set; }
 
-        public List<SearchResultsViewModel> Results { get; set; }
-
-        public SearchViewModel()
-        {
-            Results = new List<SearchResultsViewModel>();
-        }
+        public List<SearchResultsViewModel> Results { get; set; } = new List<SearchResultsViewModel>();
     }
 
-    public class SearchResultsViewModel
+    public class SearchResultsViewModel : ProductViewModel
     {
-        public int ProductID { get; set; }
-        public string Name { get; set; }
-        public decimal Price { get; set; }
-        public string ImageFile { get; set; }
+
     }
 }

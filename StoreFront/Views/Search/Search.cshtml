@@ -7,27 +7,22 @@
 
 <h2>@ViewBag.Title</h2>
 
-<div class="navbar-nav navbar-right" id="divShoppingCart">
-
-</div>
-
 <div class="panel">
     <div class="panel-body">
         @using (Html.BeginForm("Search", "Search", FormMethod.Post))
         {
             <div class="form-group">
                 <label>Input product to search for: </label>
-                @Html.TextBoxFor(s => s.SearchText , new { @autofocus = "autofocus" })
+                @Html.TextBoxFor(s => s.SearchText, new { @autofocus = "autofocus" })
             </div>
             <div class="form-group">
                 <input id="SearchButton" type="submit" class="btn btn-primary" value="Search Products" />
             </div>
         }
-
         <table class="table" id="table">
             <tr>
                 <th>
-                    Product Name   
+                    Product Name
                 </th>
                 <th>
                     Price
@@ -46,17 +41,25 @@
                 {
                     <tr>
                         <td>
-                            @Html.Display(item.Name)
+                            @Html.DisplayFor(modelItem => item.Name)
                         </td>
                         <td>
-                            @Html.Display(item.Price.ToString())
+                            @item.Price.ToString("$0.00")
                         </td>
-                        <td>
-                            <img src="@Url.Content(item.ImageFile)" />
+                        <td style="width:300px;">
+                            @if (item.ImageFile != null)
+                            {
+                                <img src="@Url.Content(item.ImageFile)" />
+                            }
+                            else
+                            {
+                                <span>No image available.</span>
+                            }
                         </td>
-                        <td>
-                            @Html.ActionLink("Add to Cart", "Add", "Search", new {id = item.ProductID })
+                        <td colspan="2" style="width:100px;">
+                            <input id="fakeLink" class="addBtn" data-product="@item.ProductID" type="submit" value="Add" />
                         </td>
+
                     </tr>
                 }
             }
@@ -69,8 +72,50 @@
 
         </table>
 
-        <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-        <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
-
     </div>
 </div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js" type="text/javascript"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js" type="text/javascript"></script>
+
+@section scripts
+{
+    <script>
+
+        @*var addToCart = function (idFromButton) {
+
+            $.ajax({
+                type: "POST",
+                data: { prodID: idFromButton },
+                url: '@Url.Action("Add", "ShoppingCart")',
+                success: function (data)
+                {
+                    $('#BadgeIcon').html(data).fadeOut(1).fadeIn('fast');
+
+                    //$('.fakeLink-' + idFromButton).text("Product Added!").css("color", "green").fadeIn(600).fadeOut("slow");
+                }
+            });
+        }*@
+
+        $(function () {
+
+            $(".addBtn").click(function (e) {
+                e.preventDefault();
+                var _this = $(this);
+                $.ajax({
+                    type: "POST",
+                    data: { prodID: _this.data("product") },
+                    url: '@Url.Action("Add", "ShoppingCart")',
+                    success: function (data) {
+
+                        $('#BadgeIcon').html(data).fadeOut(1).fadeIn('fast');
+
+                        var msg = $("<span />").html("Product added!").css("color", "green");
+                        msg.appendTo(_this.parent()).fadeIn().fadeOut(800);
+                    }
+                });
+            });
+        });
+
+    </script>
+}

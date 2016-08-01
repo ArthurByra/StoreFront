@@ -8,19 +8,11 @@ namespace StoreFront.ViewModels
 {
     public class ShoppingCartViewModel : CustomerBaseViewModel
     {
-        public List<ShoppingCartResults> ShoppingCartItems { get; set; }
-
-        public ShoppingCartViewModel()
-        {
-            ShoppingCartItems = new List<ShoppingCartResults>();
-        }
+        public List<ShoppingCartProductViewModel> ShoppingCartList { get; set; } = new List<ShoppingCartProductViewModel>();
     }
 
-    public class ShoppingCartResults
+    public class ShoppingCartProductViewModel : ProductViewModel
     {
-        public string Name { get; set; }
-        public decimal Price { get; set; }
-        public string ImageFile { get; set; }
         public int Quantity { get; set; }
     }
 }

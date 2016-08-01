@@ -19,9 +19,9 @@ namespace StoreFront.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            var x = new SearchViewModel();
-            x.Name = HttpContext.User.Identity.Name;
-            return View(x);
+            var model = new SearchViewModel();
+            model.Name = HttpContext.User.Identity.Name;
+            return View(model);
         }
 
         [Authorize]
@@ -35,25 +35,6 @@ namespace StoreFront.Controllers
             }
 
             return View(model);
-        }
-
-        [HttpPost]
-        public ActionResult Add(ShoppingCartViewModel model, int ProdID) //fix
-        {
-            using (db)
-            {
-                var findProduct = db.Products.Where(p => p.ProductID == ProdID);
-                model.ShoppingCartItems = findProduct.Select(x => new ShoppingCartResults { Name = x.ProductName, Price = x.Price ?? 999999, ImageFile = x.ImageFile}).ToList();
-            }
-
-            return RedirectToAction("AddCartQuantity");
-        }
-
-        public PartialViewResult AddCartQuantity()
-        {
-            Session["CartCount"] = Convert.ToInt32(Session["CartCount"]) + 1;
-
-            return PartialView("_ShoppingCartPartial");
         }
     }
 }

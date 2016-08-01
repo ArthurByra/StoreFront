@@ -32,11 +32,14 @@ namespace StoreFront.Models
             return finalName;
         }
 
-        public int UserID(string userID)
+        public int UserID()
         {
-            StoreFrontContext db = new StoreFrontContext();
+            using (StoreFrontContext db = new StoreFrontContext())
+            {
+                var findMe = db.Users.FirstOrDefault(x => x.UserName == "ArthurByra").UserID;
 
-            return 5;
+                return findMe;
+            }
         }
     }
 
