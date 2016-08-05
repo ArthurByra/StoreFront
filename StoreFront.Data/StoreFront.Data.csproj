@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL\IOrderRepository.cs" />
     <Compile Include="Models\Address.cs">
       <DependentUpon>StoreFrontEntityFramework.tt</DependentUpon>
     </Compile>
@@ -114,9 +115,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Models\StoreFrontEntityFramework.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

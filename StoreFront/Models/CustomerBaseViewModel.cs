@@ -7,6 +7,8 @@ using System.Text;
 using System.Data.Entity;
 using System.Web;
 using System.Web.Providers.Entities;
+using System.Web.Profile;
+using System.Web.Security;
 
 namespace StoreFront.Models
 {
@@ -42,7 +44,7 @@ namespace StoreFront.Models
             }
         }
     }
-
+    
     public class LoginViewModel
     {
         public int UserID { get; set; }
@@ -85,32 +87,3 @@ namespace StoreFront.Models
         public Nullable<System.DateTime> DateCreated { get; set; }
     }
 }
-
-
-//public string UserName() //probably need something passed here @@@
-//{
-//    string finalName;
-//    char firstChar;
-//    string lastName;
-//    string initialName = "Arthur Byra"; //gets the string to be modified using Session
-
-//    //http://stackoverflow.com/questions/10389805/split-string-at-first-space
-//    lastName = initialName.Substring(initialName.IndexOf(' ') + 1).ToLower(); //grabs last name and converts to lowercase
-
-//    //http://stackoverflow.com/questions/6219454/efficient-way-to-remove-all-whitespace-from-string
-//    initialName = (initialName.Where(c => !char.IsWhiteSpace(c)).ToArray()).ToString().ToLower(); //Removes whitespace and converts to all lowercase
-//    firstChar = initialName[0]; //Grabs first character from name
-
-//    StringBuilder build = new StringBuilder(); //new instance of StringBuilder class
-//    finalName = build.Append(firstChar).Append(lastName).ToString();
-
-//    return finalName;
-//}
-
-//public int UserID() //probably need something passed here @@@
-//{
-//    int userID = 1;
-
-
-//    return userID;
-//}

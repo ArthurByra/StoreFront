@@ -37,12 +37,13 @@ namespace StoreFront.Controllers
 
                         if (usr.IsAdmin == true)
                         {
-                            Session["isAdmin"] = 1;
+                            if (!Roles.RoleExists("Admin"))
+                                Roles.CreateRole("Admin");
 
-                            //dynamic profile = ProfileBase.Create(Membership.GetUser().UserName);
-                            //string isAdmin = profile.isAdmin;
-                            //profile.isAdmin = "1";
-                            //profile.Save();
+                            var x = Roles.GetAllRoles();
+
+                            if (!Roles.IsUserInRole(usr.UserName, "Admin"))
+                                Roles.AddUserToRole(usr.UserName, "Admin");
                         }
 
                         return RedirectToAction("Index", "Home");

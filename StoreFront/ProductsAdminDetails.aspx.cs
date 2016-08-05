@@ -42,5 +42,56 @@ namespace StoreFront
         {
             DetailsView1.Visible = false;
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            if (FileUpload1.HasFile)
+            {
+                string fileExtension = System.IO.Path.GetExtension(FileUpload1.FileName);
+
+                if (fileExtension.ToLower() != ".jpg" && fileExtension.ToLower() != ".bmp"
+                  && fileExtension.ToLower() != ".gif" && fileExtension.ToLower() != ".png" 
+                  && fileExtension.ToLower() != ".jpeg")
+                {
+                    lblMessage.Text = "Only .jpg, .bmp, .gif, or .png files are accepted.";
+                    lblMessage.ForeColor = System.Drawing.Color.Red;
+                }
+                else
+                {
+                    int fileSize = FileUpload1.PostedFile.ContentLength;
+                    if (fileSize > 2097152)
+                    {
+                        lblMessage.Text = "Maximum file size of 2MB exceeded.";
+                        lblMessage.ForeColor = System.Drawing.Color.Red;
+                    }
+                    else
+                    {
+                        FileUpload1.SaveAs(Server.MapPath("~/Images/" + FileUpload1.FileName));
+                        lblMessage.Text = "File successfully uploaded";
+                        lblMessage.ForeColor = System.Drawing.Color.Green;
+
+                        string conString = ConfigurationManager.ConnectionStrings["StoreFrontConnectionString"].ConnectionString;
+
+                        using (SqlConnection conn = new SqlConnection(conString))
+                        {
+                            SqlCommand cmd = new SqlCommand();
+                            cmd.CommandText = "UPDATE Product SET ImageFile = @fileName WHERE ProductID = @prodID";
+                            cmd.CommandType = CommandType.Text;
+                            cmd.Parameters.AddWithValue("fileName", FileUpload1.FileName);
+                            cmd.Parameters.AddWithValue("prodID", Request.QueryString["ProductID"]);
+                            cmd.Connection = conn;
+                            conn.Open();
+                            SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                            DetailsView1.DataBind();
+                        }
+                    }
+                }
+            }
+            else
+            {
+                lblMessage.Text = "Please select a file to upload";
+                lblMessage.ForeColor = System.Drawing.Color.Red;
+            }
+        }
     }
 }

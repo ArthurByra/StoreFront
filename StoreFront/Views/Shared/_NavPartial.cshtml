@@ -5,14 +5,9 @@
 {
     <li>@Html.ActionLink("Profile", "UserProfile", "Home")</li>
 
-    @*if (HttpContext.Current.Profile.GetPropertyValue("isAdmin") != null && (int)HttpContext.Current.Profile.GetPropertyValue("isAdmin") == 1)
+    if (Roles.IsUserInRole("Admin"))
     {
-        <li><a href="~/Default.aspx">Admin</a></li>
-    }*@
+            <li><a href="~/Default.aspx">Admin</a></li>
+        }
 
-    if (Session["isAdmin"] != null && (int)Session["isAdmin"] == 1)
-    {
-        <li><a href="~/Default.aspx">Admin</a></li>
-    }
-
-}
+} 

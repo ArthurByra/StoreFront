@@ -75,8 +75,13 @@
             <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
             <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
         </asp:DetailsView>
+        <asp:FileUpload ID="FileUpload1" runat="server" />
+        <asp:Button ID="Button1" runat="server" Text="Upload" OnClick="Button1_Click" />
+        <asp:Label ID="lblMessage" runat="server" ></asp:Label>
         <asp:ValidationSummary runat="server" ForeColor="Red" Height="78px" Width="231px"></asp:ValidationSummary>
-        <asp:Button ID="BackButton" runat="server" Text="Back" OnClick="BackButton_Click" CssClass="Button" ValidationGroup="ValGroup1"/>
+        <div>
+            <asp:Button ID="BackButton" runat="server" Text="Back" OnClick="BackButton_Click" CssClass="Button" ValidationGroup="ValGroup1"/>
+        </div>
         </div>
     </div>
     </asp:Content>

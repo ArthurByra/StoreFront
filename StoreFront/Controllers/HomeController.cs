@@ -32,7 +32,6 @@ namespace StoreFront.Controllers
         public ActionResult LogOff()
         {
             FormsAuthentication.SignOut();
-            Session[("IsAdmin")] = 0;
             return RedirectToAction("Index", "Home");
         }
 
