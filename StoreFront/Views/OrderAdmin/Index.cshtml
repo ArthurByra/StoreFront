@@ -9,7 +9,6 @@
 <div class="panel">
     <div class="panel-body">
 
-
         <table class="table" id="OrderTable">
             <tr>
                 <th>
@@ -40,7 +39,7 @@
                     <td>@item.Total</td>
                     <td>@item.OrderDate</td>
                     <td>@item.Status</td>
-                    <td><input id="fakeLink" class="addBtn" data-product="@item.OrderID" type="submit" value="Edit" /></td>
+                    <td><input id="fakeLink" class="editBtn" data-product="@item.OrderID" type="submit" value="Edit" /></td>
                 </tr>
             }
 
@@ -55,24 +54,20 @@
 @section scripts
 {
     <script>
-        @*$(function () {
+        $(function () {
 
-            $(".addBtn").click(function (e) {
+            $(".editBtn").click(function (e) {
                 e.preventDefault();
                 var _this = $(this);
-                $.ajax({
-                    type: "POST",
-                    data: { prodID: _this.data("product") },
-                    url: '@Url.Action("Add", "ShoppingCart")',
-                    success: function (data) {
 
-                        $('#BadgeIcon').html(data).fadeOut(1).fadeIn('fast');
-
-                        var msg = $("<span />").html("Product added!").css("color", "green");
-                        msg.appendTo(_this.parent()).fadeIn().fadeOut(800);
-                    }
-                });
+                if (!isNaN(e)) {
+                    $.ajax({
+                        type: "POST",
+                        data: { id: _this.data("product") },
+                        url: '@Url.Action("Details", "OrderAdmin")'
+                    });
+                }
             });
-        });*@
+        });
     </script>
 }

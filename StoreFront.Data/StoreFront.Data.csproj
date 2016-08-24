@@ -51,10 +51,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAL\IOrderRepository.cs" />
     <Compile Include="Models\Address.cs">
       <DependentUpon>StoreFrontEntityFramework.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\FullProduct.cs" />
     <Compile Include="Models\Order.cs">
       <DependentUpon>StoreFrontEntityFramework.tt</DependentUpon>
     </Compile>
@@ -98,8 +98,12 @@
       <DependentUpon>StoreFrontEntityFramework.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\IInventoryRepository.cs" />
     <Compile Include="Repository\InventoryRepository.cs" />
+    <Compile Include="Repository\IOrderRepository.cs" />
+    <Compile Include="Repository\IUnitOfWork.cs" />
     <Compile Include="Repository\OrderRepository.cs" />
+    <Compile Include="Repository\UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

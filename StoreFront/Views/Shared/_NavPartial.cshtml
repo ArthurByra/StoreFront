@@ -5,9 +5,26 @@
 {
     <li>@Html.ActionLink("Profile", "UserProfile", "Home")</li>
 
-    if (Roles.IsUserInRole("Admin"))
-    {
-            <li><a href="~/Default.aspx">Admin</a></li>
-        }
+    <li id="IfAdmin"><a href="~/Default.aspx">Admin</a></li>
 
-} 
+<script>
+
+    $(document).ready(function () {
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("isAdmin", "Login")',
+            success: function (data) {
+                if(data == 1)
+                {
+                    $("#IfAdmin").show();
+                }
+                else {
+                    $("#IfAdmin").hide();
+                }
+            }
+        })
+    });
+
+</script>
+
+}

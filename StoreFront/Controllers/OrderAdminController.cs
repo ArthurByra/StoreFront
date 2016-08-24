@@ -8,39 +8,36 @@ using StoreFront.ViewModels;
 using StoreFront.Data;
 using StoreFront.Data.Models;
 using StoreFront.Data.Repository;
-using StoreFront.Data.DAL;
 
 namespace StoreFront.Controllers
 {
     public class OrderAdminController : Controller
     {
-        private IOrderRepository orderRepository;
-
-        private OrderAdminController()
-        {
-            orderRepository = new OrderRepository(new StoreFrontEntities1());
-        }
+        UnitOfWork uow = new UnitOfWork(new StoreFrontEntities1());
 
         [Authorize]    
         public ActionResult Index()
-        {   
-            var orders = orderRepository.GetOrders().ToList();
+        {
+            var orders = uow.Orders.GetAllOrders(); //need to fix the error thrown if its null...either here or repo
 
             OrderViewModel orderModel = new OrderViewModel();
-
-            for (int i = 0; i < orders.Count; i++)
+            if (orders != null)
             {
-                var o = new OrderViewResultsModel
+                foreach (var item in orders)
                 {
-                    Username = orders[i].User.UserName,
-                    Total = orders[i].Total ?? 0,
-                    OrderDate = orders[i].OrderDate ?? System.DateTime.Now,
-                    OrderID = orders[i].OrderID,
-                    Status = orders[i].Status.ToString()
-                };
-                orderModel.OrderResults.Add(o);
-            }
+                    var results = new OrderViewResultsModel //test@@@@
+                    {
+                        OrderID = item.OrderID,
+                        Username = item.User.UserName,
+                        OrderDate = (DateTime)item.OrderDate,
+                        Total = item.Total ?? 99999,
+                        Status = item.Status.ToString()
+                    };
 
+                    orderModel.OrderResults.Add(results);
+                }
+            }
+            
             return View(orderModel); //test@@@@@@@@@@@@@@@@@@@@@@@@@@@
         }
 
@@ -54,9 +51,10 @@ namespace StoreFront.Controllers
         //The grid will also provide an edit link which will allow users to open a details page 
         //displaying all details about an order.  
 
-        public ActionResult Details()
+        [HttpPost]
+        [Authorize]
+        public ActionResult Details(int id)
         {
-
 
             return View();
         }

@@ -35,6 +35,7 @@ namespace StoreFront.Controllers
                             ImageFile = item.Product.ImageFile,
                             Quantity = item.Quantity ?? 0
                         };
+
                         cartModel.ShoppingCartList.Add(product);
                     }
                 }

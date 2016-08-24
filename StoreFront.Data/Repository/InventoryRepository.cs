@@ -1,53 +1,45 @@
-﻿using StoreFront.Data.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using StoreFront;
+using StoreFront.Data.Models;
 
 namespace StoreFront.Data.Repository
 {
-    class InventoryRepository
+    public class InventoryRepository : IInventoryRepository
     {
-        public List<Product> SearchProducts(string searchText)
+        protected readonly StoreFrontEntities1 Context;
+
+        public InventoryRepository(StoreFrontEntities1 context)
         {
-            using (StoreFrontEntities1 db = new StoreFrontEntities1())
-            {
-                var findProduct = db.Products.Where(x => x.ProductName.Contains(searchText) || x.Description.Contains(searchText)).ToList();
-                
-                return findProduct;
-            }
+            Context = context;
+        }
+
+        public IEnumerable<Product> SearchProducts(string searchText)
+        {
+            return Context.Products.Where(x => x.ProductName.Contains(searchText) || x.Description.Contains(searchText) && x.IsPublished == true);
         }
 
         public FullProduct GetProduct(int id)
         {
-            using (StoreFrontEntities1 db = new StoreFrontEntities1())
-            {
-                FullProduct thisIsAProduct = new FullProduct();
+            var findingAProduct = Context.Products.FirstOrDefault(x => x.ProductID == id);
 
-                //o GetProduct(int id):	This should return an instance of the custom class “FullProduct”, 
-                //which will have all the fields in the “Product” class in entity framework.
-                //This will be populated inside the method and returned
+            FullProduct thisIsAFullProduct = new FullProduct{
+                ProductID = findingAProduct.ProductID,
+                ProductName = findingAProduct.ProductName,
+                Description = findingAProduct.Description,
+                IsPublished = findingAProduct.IsPublished,
+                Quantity = findingAProduct.Quantity,
+                Price = findingAProduct.Price,
+                ImageFile = findingAProduct.ImageFile,
+                DateCreated = findingAProduct.DateCreated,
+                CreatedBy = findingAProduct.CreatedBy,
+                DateModified = findingAProduct.DateModified,
+                ModifiedBy = findingAProduct.ModifiedBy
+                };
 
-                return thisIsAProduct;
-            }
+            return thisIsAFullProduct;
         }
-        
     }
-}
-
-class FullProduct //???????????????????????????
-{
-    public int ProductID { get; set; }
-    public string ProductName { get; set; }
-    public string Description { get; set; }
-    public Nullable<bool> IsPublished { get; set; }
-    public Nullable<int> Quantity { get; set; }
-    public Nullable<decimal> Price { get; set; }
-    public string ImageFile { get; set; }
-    public Nullable<System.DateTime> DateCreated { get; set; }
-    public string CreatedBy { get; set; }
-    public Nullable<System.DateTime> DateModified { get; set; }
-    public string ModifiedBy { get; set; }
 }

@@ -1,4 +1,6 @@
-﻿using StoreFront.Models;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using StoreFront.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,17 +37,6 @@ namespace StoreFront.Controllers
                     {
                         FormsAuthentication.SetAuthCookie(usr.UserName, false);
 
-                        if (usr.IsAdmin == true)
-                        {
-                            if (!Roles.RoleExists("Admin"))
-                                Roles.CreateRole("Admin");
-
-                            var x = Roles.GetAllRoles();
-
-                            if (!Roles.IsUserInRole(usr.UserName, "Admin"))
-                                Roles.AddUserToRole(usr.UserName, "Admin");
-                        }
-
                         return RedirectToAction("Index", "Home");
                     }
                     else
@@ -56,6 +47,18 @@ namespace StoreFront.Controllers
             }
 
             return View();
+        }
+
+        public int isAdmin()
+        {
+            using (StoreFrontContext db = new StoreFrontContext())
+            {
+                var user = db.Users.FirstOrDefault(x => x.UserName == HttpContext.User.Identity.Name);
+                if (user.IsAdmin == true)
+                    return 1;
+                else
+                    return 0;
+            }
         }
     }
 }

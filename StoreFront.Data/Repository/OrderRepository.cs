@@ -1,38 +1,30 @@
-﻿using StoreFront.Data.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using StoreFront;
-using StoreFront.Data.DAL;
+using StoreFront.Data.Models;
 
 namespace StoreFront.Data.Repository
 {
-    //http://www.asp.net/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application
     public class OrderRepository : IOrderRepository
     {
-        private StoreFrontEntities1 context;
+        protected readonly StoreFrontEntities1 Context;
 
         public OrderRepository(StoreFrontEntities1 context)
         {
-            this.context = context;
+            Context = context;
         }
 
-        public IEnumerable<Order> GetOrders()
+        public Order GetOrder(int id)
         {
-            return context.Orders;
+            return Context.Orders.FirstOrDefault(x => x.OrderID == id);
         }
 
-        public Order GetOrderByID(int id)
+        public IEnumerable<Order> GetAllOrders()
         {
-            return context.Orders.Find(id);
+            return Context.Orders.Select(x => x);
         }
-
-        public void Save()
-        {
-            context.SaveChanges();
-        }
-
+        
     }
 }
