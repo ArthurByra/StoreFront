@@ -25,7 +25,7 @@ namespace StoreFront.Controllers
             {
                 foreach (var item in orders)
                 {
-                    var results = new OrderViewResultsModel //test@@@@
+                    var results = new OrderViewResultsModel //test
                     {
                         OrderID = item.OrderID,
                         Username = item.User.UserName,
